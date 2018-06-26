@@ -1,6 +1,6 @@
-package PersonProject;
+package FileProject;
 
-le;public class Person {
+public class Person {
     private String name;
     private int age;
     private String jobTitle;
@@ -13,9 +13,8 @@ le;public class Person {
 
 
     @Override
-    public String toString(){
-
-        return getName() + " " + getAge() + " " + getJobTitle();
+    public String toString() {
+        return getName() + "," + getAge() + "," + getJobTitle();
     }
 
     protected String getName() {

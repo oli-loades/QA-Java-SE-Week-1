@@ -1,4 +1,4 @@
-package BasicTasks;
+package models;
 
 public class Main {
 
@@ -54,12 +54,12 @@ public class Main {
     }
 
     //task 4
-    private static String returnMessage() {
+    public static String returnMessage() {
         return "hello world";
     }
 
     //task 5,6,7
-    private static int add(int num1, int num2, boolean isAdd) {
+    public static int add(int num1, int num2, boolean isAdd) {
         int result;
         if (num1 == 0) {
             result = num2;
@@ -76,14 +76,14 @@ public class Main {
     }
 
     //task 8
-    private static void iterNums() {
+    public static void iterNums() {
         for (int i = 0; i < 10; i++) {
             System.out.println(add(i, 5, true));
         }
     }
 
     //task 11
-    private static void arrays() {
+    public static void arrays() {
         int nums[] = new int[10];
         int i;
         for (i = 0; i < 10; i++) {
@@ -97,9 +97,46 @@ public class Main {
     }
 
     //task 12
-    private static int blackjack(int num1, int num2) {
+
+
+    public static int blackjack(int num1, int num2) {
         int result;
 
+        if (num1 > 21) {
+
+            if (num2 > 21) {
+                result = 0;
+            } else {
+                result = num2;
+            }
+
+        } else if (num2 > 21) {
+            result = num1;
+        } else {
+
+            if (num1 > num2) {
+                result = num1;
+            } else {
+                result = num2;
+            }
+
+        }
+
+        return result;
+    }
+        /*
+        if (num1 <= 21 && num2 <= 21) {
+            if (num1 > num2) {
+                result = num1;
+            } else {
+                result = num2;
+            }
+        } else {
+            result = 0;
+        }
+        return result;
+    }
+/*
         if (num1 <= 21 && num2 <= 21) {
             if (num1 > num2) {
                 result = num1;
@@ -113,12 +150,13 @@ public class Main {
         } else {
             result = 0;
         }
-
-        return result;
-    }
+*/
+    // return result;
+    // }
 
     //task 13
-    private static int uniqueSum(int num1, int num2, int num3) {
+
+    public static int uniqueSum(int num1, int num2, int num3) {
         int result = 0;
 
         if (num1 != num2 && num1 != num3) {
@@ -135,7 +173,9 @@ public class Main {
     }
 
     //task 14
-    private static boolean tooHot(int temperature, boolean isSummer) {
+
+
+    public static boolean tooHot(int temperature, boolean isSummer) {
         boolean isTooHot = false;
         int upper = 90;
 

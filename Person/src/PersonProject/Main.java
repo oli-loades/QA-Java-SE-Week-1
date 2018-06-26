@@ -10,6 +10,8 @@ public class Main {
         Person p3 = new Person("e", 3, "f");
 
         ArrayList<Person> people = new ArrayList<>();
+
+
         people.add(p1);
         people.add(p2);
         people.add(p3);
@@ -23,6 +25,7 @@ public class Main {
 
         System.out.println(search("z",people).toString()); //needs exection handling
     }
+
     private static Person search(String name, ArrayList<Person> people) {
         Person result = null;
         for (Person p : people) {
