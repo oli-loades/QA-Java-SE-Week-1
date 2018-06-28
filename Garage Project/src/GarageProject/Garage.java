@@ -6,15 +6,15 @@ import java.util.List;
 public class Garage {
     private List<Vehicle> vehicleList;
 
-    protected Garage() {
+    public Garage() {
         vehicleList = new ArrayList<>();
     }
 
-    protected void addVehicle(Vehicle newVehicle) {
+    public void addVehicle(Vehicle newVehicle) {
         vehicleList.add(newVehicle);
     }
 
-    protected int calcBill() {
+    public int calcBill() {
         int total = 0;
         for (Vehicle v : vehicleList) {
             total += v.calcBill();
@@ -22,7 +22,7 @@ public class Garage {
         return total;
     }
 
-    protected void emptyGrage() {
+    public void emptyGarage() {
         vehicleList.clear();
     }
 
@@ -46,14 +46,14 @@ public class Garage {
         return pos;
     }
 
-    protected void removeByID(int ID) {
+    public void removeByID(int ID) {
         if (exists(ID)) {
             int pos = findPosByID(ID);
             vehicleList.remove(pos);
         }
     }
 
-    protected void removedByType(String type) {
+    public void removedByType(String type) {
         for (int i = 0; i<= vehicleList.size()-1;i++){
             Vehicle v =vehicleList.get(i);
             switch (type) {

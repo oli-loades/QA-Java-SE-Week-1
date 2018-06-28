@@ -99,7 +99,7 @@ public class Main {
     //task 12
 
 
-    public static int blackjack(int num1, int num2) {
+    public static int blackjack(int num1,  int num2) {
         int result;
 
         if (num1 > 21) {

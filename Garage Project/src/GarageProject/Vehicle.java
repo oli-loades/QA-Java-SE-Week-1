@@ -1,41 +1,39 @@
 package GarageProject;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String colour;
     private int numWheels;
     private int ID;
 
-    protected Vehicle(int ID,String colour, int numWheels){
+    public  Vehicle(int ID,String colour, int numWheels){
         this.setID(ID);
         this.setColour(colour);
         this.setNumWheels(numWheels);
     }
 
-    protected String getColour() {
+    public String getColour() {
         return colour;
     }
 
-    protected void setColour(String colour) {
+    public void setColour(String colour) {
         this.colour = colour;
     }
 
-    protected int getNumWheels() {
+    public int getNumWheels() {
         return numWheels;
     }
 
-    protected void setNumWheels(int numWheels) {
+    public void setNumWheels(int numWheels) {
         this.numWheels = numWheels;
     }
 
-    protected  int calcBill(){
-        return 0;
-    };
+    public  abstract int calcBill();
 
-    protected int getID() {
+    public int getID() {
         return ID;
     }
 
-    protected void setID(int ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 }

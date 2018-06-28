@@ -26,7 +26,7 @@ public class Main {
         g.removeByID(2);
         System.out.println(g.calcBill());//450
 
-        g.emptyGrage();
+        g.emptyGarage();
         System.out.println(g.calcBill());//0
     }
 }

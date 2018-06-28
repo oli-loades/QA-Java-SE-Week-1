@@ -3,22 +3,22 @@ package GarageProject;
 public class Car extends Vehicle {
     private int numDoors;
 
-    protected Car(int numDoors, String colour,int ID) {
+    public Car(int numDoors, String colour,int ID) {
         super(ID,colour, 4);
         this.setNumDoors(numDoors);
     }
 
 
-    protected int getNumDoors() {
+    public int getNumDoors() {
         return numDoors;
     }
 
-    protected void setNumDoors(int numDoors) {
+    public void setNumDoors(int numDoors) {
         this.numDoors = numDoors;
     }
 
     @Override
-    protected int calcBill(){
+    public int calcBill(){
         return 50;
     }
 
