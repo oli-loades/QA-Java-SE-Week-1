@@ -5,13 +5,13 @@ import libary.models.Newspaper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 public class NewspaperTests {
     @Test
     public void createNewspaper(){
         Item n= new Newspaper(1,true,"oiu","tre");
-        assertTrue(n!=null);
+        assertNotNull(n);
     }
 
     @Test

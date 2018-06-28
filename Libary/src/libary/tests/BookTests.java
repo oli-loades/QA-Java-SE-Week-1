@@ -5,13 +5,13 @@ import libary.models.Item;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 public class BookTests {
     @Test
     public void createBook(){
         Item b = new Book(1,true,"abc","xyz");
-        assertTrue(b!=null);
+        assertNotNull(b);
     }
 
     @Test

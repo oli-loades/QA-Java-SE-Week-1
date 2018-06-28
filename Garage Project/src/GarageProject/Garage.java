@@ -26,30 +26,15 @@ public class Garage {
         vehicleList.clear();
     }
 
-    private boolean exists(int ID) {
-        boolean exists = false;
-        for (int i = 0; i < vehicleList.size() - 1; i++) {
-            if (vehicleList.get(i).getID() == ID) {
-                exists = true;
-            }
-        }
-        return exists;
-    }
 
-    private int findPosByID(int ID) {
-        int pos = 0;
-        for (int i = 0; i < vehicleList.size() - 1; i++) {
-            if (vehicleList.get(i).getID() == ID) {
-                pos = i;
-            }
-        }
-        return pos;
-    }
 
     public void removeByID(int ID) {
-        if (exists(ID)) {
-            int pos = findPosByID(ID);
-            vehicleList.remove(pos);
+        for (int i = 0; i<= vehicleList.size()-1;i++){
+            Vehicle v =vehicleList.get(i);
+           if(v.getID()==ID) {
+               vehicleList.remove(v);
+               i--;
+           }
         }
     }
 
@@ -65,8 +50,10 @@ public class Garage {
                     break;
                 case ("Motorcycle"):
                     if (v instanceof Motorcycle) {
+
                         vehicleList.remove(v);
                         i--;
+
                     }
                     break;
                 case ("Lorry"):

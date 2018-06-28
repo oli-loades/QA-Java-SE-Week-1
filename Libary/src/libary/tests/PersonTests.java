@@ -6,14 +6,14 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 public class PersonTests {
 
     @Test
     public void createPerson(){
         Person p = new Person(1, "abc");
-        assertTrue(p!=null);
+        assertNotNull(p);
     }
 
     @Test
@@ -73,4 +73,8 @@ public class PersonTests {
         assertEquals(0, p.getItemList().size());
     }
 
+    @Test
+    public void toStringTest(){
+        assertEquals("ID: 1 name: abc",(new Person(1, "abc")).toString());
+    }
 }

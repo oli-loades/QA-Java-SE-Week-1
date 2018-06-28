@@ -1,6 +1,6 @@
 package libary.models;
 
-public abstract class Item {
+public abstract class Item implements Crudable {
     private int ID;
     private  boolean inStock;
 

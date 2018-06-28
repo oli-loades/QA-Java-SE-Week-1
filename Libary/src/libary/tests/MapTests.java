@@ -5,13 +5,13 @@ import libary.models.Map;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 public class MapTests {
     @Test
     public void createMap(){
         Item m = new Map(1,true,"abc","xyz");
-        assertTrue(m!=null);
+        assertNotNull(m);
     }
 
     @Test
