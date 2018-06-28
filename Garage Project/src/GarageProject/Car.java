@@ -5,7 +5,7 @@ public class Car extends Vehicle {
 
     public Car(int numDoors, String colour,int ID) {
         super(ID,colour, 4);
-        this.setNumDoors(numDoors);
+        this.numDoors = numDoors;;
     }
 
 

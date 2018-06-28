@@ -5,7 +5,7 @@ public class Lorry extends Vehicle{
 
     public Lorry(int maxLoad, String colour,int ID){
         super(ID,colour,8);
-        this.setMaxLoad(maxLoad);
+        this.maxLoad = maxLoad ;
     }
 
     public int getMaxLoad() {

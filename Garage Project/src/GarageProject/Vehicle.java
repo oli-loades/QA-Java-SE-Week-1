@@ -6,9 +6,9 @@ public abstract class Vehicle {
     private int ID;
 
     public  Vehicle(int ID,String colour, int numWheels){
-        this.setID(ID);
-        this.setColour(colour);
-        this.setNumWheels(numWheels);
+        this.ID = ID;
+        this.colour = colour;
+        this.numWheels = numWheels;
     }
 
     public String getColour() {

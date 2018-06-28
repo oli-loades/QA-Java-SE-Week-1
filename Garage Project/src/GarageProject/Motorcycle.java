@@ -5,7 +5,12 @@ public class Motorcycle extends Vehicle{
 
     public Motorcycle(int numSeats, String colour, int ID){
         super(ID,colour,2);
-        this.setNumSeats(numSeats);
+        this.numSeats = numSeats;
+    }
+
+    @Override
+    public int calcBill(){
+        return 100;
     }
 
     public int getNumSeats() {
@@ -16,8 +21,5 @@ public class Motorcycle extends Vehicle{
         this.numSeats = numSeats;
     }
 
-    @Override
-    public int calcBill(){
-        return 100;
-    }
+
 }

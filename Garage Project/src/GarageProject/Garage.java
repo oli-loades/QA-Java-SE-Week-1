@@ -60,16 +60,19 @@ public class Garage {
                 case ("Car"):
                     if (v instanceof Car) {
                         vehicleList.remove(v);
+                        i--;//go back so does not skip anything
                     }
                     break;
                 case ("Motorcycle"):
                     if (v instanceof Motorcycle) {
                         vehicleList.remove(v);
+                        i--;
                     }
                     break;
                 case ("Lorry"):
                     if (v instanceof Lorry) {
                         vehicleList.remove(v);
+                        i--;
                     }
                     break;
                 default:

@@ -5,8 +5,11 @@ public class Main {
     public static void main(String[] args) {
         Vehicle c = new Car(3,"red",1);
         Vehicle c2 = new Car(3,"red",2);
+        System.out.println(c.getID());
 
         Vehicle m = new Motorcycle(1,"red",3);
+        m.setColour("blue");
+        System.out.println(m.getColour());
 
         Vehicle l = new Lorry(300,"red",10);
         Vehicle l2 = new Lorry(120,"red",12);
