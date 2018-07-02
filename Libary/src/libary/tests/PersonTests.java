@@ -1,6 +1,7 @@
 package libary.tests;
 
 import libary.models.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -10,15 +11,20 @@ import static org.junit.Assert.assertNotNull;
 
 public class PersonTests {
 
+    private Person p;
+
+    @Before
+    public void setup(){
+        p = new Person(1, "abc");
+    }
+
     @Test
     public void createPerson(){
-        Person p = new Person(1, "abc");
         assertNotNull(p);
     }
 
     @Test
     public void getAndSet(){
-        Person p = new Person(1, "abc");
         assertEquals("abc", p.getName());
         p.setName("asd");
         assertEquals("asd", p.getName());
@@ -27,7 +33,6 @@ public class PersonTests {
 
     @Test
     public void addItem(){
-        Person p = new Person(1, "abc");
 
         p.addItem(new Book(1,true,"abc","xyz"));
         p.addItem(new Newspaper(2,true,"oiu","tre"));
@@ -38,7 +43,6 @@ public class PersonTests {
 
     @Test
     public void removeItem(){
-        Person p = new Person(1, "abc");
 
         p.addItem(new Book(1,true,"abc","xyz"));
         p.addItem(new Newspaper(2,true,"oiu","tre"));
@@ -52,7 +56,6 @@ public class PersonTests {
 
     @Test
     public void getItemList(){
-        Person p = new Person(1, "abc");
 
         p.addItem(new Book(1,true,"abc","xyz"));
         p.addItem(new Newspaper(2,true,"oiu","tre"));
@@ -64,7 +67,6 @@ public class PersonTests {
 
     @Test
     public void clearItemList(){
-        Person p = new Person(1, "abc");
 
         p.addItem(new Book(1,true,"abc","xyz"));
         p.addItem(new Newspaper(2,true,"oiu","tre"));
@@ -75,6 +77,6 @@ public class PersonTests {
 
     @Test
     public void toStringTest(){
-        assertEquals("ID: 1 name: abc",(new Person(1, "abc")).toString());
+        assertEquals("ID: 1 name: abc",p.toString());
     }
 }

@@ -1,22 +1,26 @@
 package libary.tests;
 
-import libary.models.Item;
 import libary.models.Map;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MapTests {
+
+    private Map m;
+    @Before
+    public void setup(){
+        m = new Map(1,true,"abc","xyz");
+    }
     @Test
     public void createMap(){
-        Item m = new Map(1,true,"abc","xyz");
         assertNotNull(m);
     }
 
     @Test
     public void abstractGetAndSet(){
-        Item m = new Map(1,true,"abc","xyz");
 
         assertEquals(1, m.getID());
 
@@ -28,7 +32,6 @@ public class MapTests {
 
     @Test
     public void getAndSet(){
-        Map m = new Map(1,true,"abc","xyz");
 
         assertEquals("abc",m.getType());
 

@@ -3,49 +3,42 @@ package libary.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonManager implements Manageable {
+public class PersonManager {
 
     List<Person> people;
 
-    public PersonManager(){
+    public PersonManager() {
         people = new ArrayList<>();
     }
 
-    @Override
-    public void add(Crudable c) {
-        if(isCorrectType(c)){
-            people.add((Person)c);
-        }
+    public void add(Person p) {
+        people.add((Person) p);
     }
 
-    @Override
-    public void update(int ID, Crudable c) {
+
+    public void update(int ID, Person p) {
         int pos = getPos(ID);
-        if(pos!=-1){
-            people.get(pos).setName(((Person) c).getName());
+        if (pos != -1) {
+            people.get(pos).setName(p.getName());
         }
+
     }
 
-    @Override
     public void delete(int ID) {
         int pos = getPos(ID);
-        if(pos!=-1){
+        if (pos != -1) {
             people.remove(pos);
         }
     }
 
-    @Override
-    public boolean isCorrectType(Crudable c) {
-        return c instanceof Person;
-    }
 
     private int getPos(int ID) {
         int pos = 0;
         int found = -1;
 
 
-        for(Person p:people){
-            if(p.getID()==ID){
+        for (Person p : people) {
+            if (p.getID() == ID) {
                 found = pos;
             }
             pos++;
@@ -54,7 +47,7 @@ public class PersonManager implements Manageable {
         return found;
     }
 
-    public Person get(int ID){
+    public Person get(int ID) {
         return people.get(getPos(ID));
     }
 
@@ -62,21 +55,20 @@ public class PersonManager implements Manageable {
         return people;
     }
 
-    @Override
     public boolean isEmpty() {
         return people.isEmpty();
     }
 
-    public void checkOut(int ID,Item item){
+    public void checkOut(int ID, Item item) {
         int pos = getPos(ID);
-        if(pos==-1){
+        if (pos == -1) {
             people.get(pos).addItem(item);
         }
     }
 
-    public void reurnItem(int itemID,int personID){
+    public void returnItem(int itemID, int personID) {
         int pos = getPos(personID);
-        if(pos==-1){
+        if (pos == -1) {
             people.get(pos).removeItem(itemID);
         }
     }
