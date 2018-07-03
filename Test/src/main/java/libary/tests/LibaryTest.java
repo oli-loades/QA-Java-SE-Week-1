@@ -1,10 +1,8 @@
 package libary.tests;
 
 import libary.models.Book;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.*;
 
 public class LibraryTest {
 
@@ -18,6 +16,9 @@ public class LibraryTest {
     @Test
     public void createLibrary(){
         assertNotNull(lib);
+    }
+
+    private void assertNotNull(Library lib) {
     }
 
     @Test

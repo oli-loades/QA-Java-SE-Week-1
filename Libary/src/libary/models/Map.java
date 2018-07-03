@@ -1,20 +1,20 @@
 package libary.models;
 
 public class Map extends Item{
-    private String type;
+    private MapType type;
     private String region;
 
-    public Map(int ID, boolean inStock,String type, String region){
-        super(ID,inStock) ;
+    public Map(boolean inStock,MapType type, String region){
+        super(inStock) ;
         this.type = type;
         this.region = region;
     }
 
-    public String getType() {
+    public MapType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(MapType type) {
         this.type = type;
     }
 

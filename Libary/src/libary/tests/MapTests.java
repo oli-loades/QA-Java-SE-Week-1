@@ -1,6 +1,7 @@
 package libary.tests;
 
 import libary.models.Map;
+import libary.models.MapType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class MapTests {
     private Map m;
     @Before
     public void setup(){
-        m = new Map(1,true,"abc","xyz");
+        m = new Map(true, MapType.OCEANIC,"xyz");
     }
     @Test
     public void createMap(){
@@ -33,12 +34,12 @@ public class MapTests {
     @Test
     public void getAndSet(){
 
-        assertEquals("abc",m.getType());
+        assertEquals("OCEANIC",m.getType().toString());
 
         assertEquals("xyz", m.getRegion());
 
-        m.setType("hfg");
-        assertEquals("hfg",m.getType());
+        m.setType(MapType.WEATHER);
+        assertEquals("WEATHER",m.getType().toString());
 
         m.setRegion("yyy");
         assertEquals("yyy", m.getRegion());

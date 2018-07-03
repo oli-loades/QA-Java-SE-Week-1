@@ -3,7 +3,7 @@ package libary.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonManager {
+public class PersonManager  implements Removable{
 
     List<Person> people;
 
@@ -24,7 +24,7 @@ public class PersonManager {
 
     }
 
-    public void delete(int ID) {
+    public void remove(int ID) {
         int pos = getPos(ID);
         if (pos != -1) {
             people.remove(pos);
@@ -59,7 +59,7 @@ public class PersonManager {
         return people.isEmpty();
     }
 
-    public void checkOut(int ID, Item item) {
+    public void checkoutItem(int ID, Item item) {
         int pos = getPos(ID);
         if (pos == -1) {
             people.get(pos).addItem(item);

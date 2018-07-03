@@ -14,6 +14,7 @@ public class ItemManagerTests {
     @Before
     public void setup(){
          im = new ItemManager();
+        Item.setCounter(0);
     }
 
 
@@ -26,24 +27,22 @@ public class ItemManagerTests {
     @Test
     public void addItem() {
         ItemManager im = new ItemManager();
-        im.add(new Book(1, true, "abc", "xyz"));
+        im.add(new Book( true, "abc", "xyz"));
         assertEquals(1, im.getList().size());
     }
 
     @Test
     public void removeItem() {
-        ItemManager im = new ItemManager();
-        im.add(new Book(2, true, "abc", "xyz"));
-        im.delete(2);
+        im.add(new Book( true, "abc", "xyz"));
+        im.remove(1);
         assertEquals(0, im.getList().size());
     }
 
     @Test
     public void updateItem() {
-        ItemManager im = new ItemManager();
-        im.add(new Book(2, true, "abc", "xyz"));
-        im.update(2, new Book(2, true, "afj", "www"));
-        assertEquals("www", ((Book) im.get(2)).getTitle());
+        im.add(new Book( true, "abc", "xyz"));
+        im.update(1, new Book(true, "afj", "www"));
+        assertEquals("www", ((Book) im.get(1)).getTitle());
     }
 
     @Test
@@ -58,9 +57,8 @@ public class ItemManagerTests {
 
     @Test
     public void isEmpty() {
-        ItemManager im = new ItemManager();
         assertTrue(im.isEmpty());
-        im.add(new Book(2, true, "abc", "xyz"));
+        im.add(new Book( true, "abc", "xyz"));
         assertFalse(im.isEmpty());
     }
 

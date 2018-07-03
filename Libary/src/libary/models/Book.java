@@ -4,8 +4,8 @@ public class Book extends Item {
     private String author;
     private String title;
 
-    public Book(int ID, boolean inStock, String author, String title){
-        super(ID,inStock);
+    public Book(boolean inStock, String author, String title){
+        super(inStock);
         this.author = author;
         this.title = title;
     }

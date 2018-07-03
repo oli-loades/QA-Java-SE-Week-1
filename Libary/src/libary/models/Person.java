@@ -3,14 +3,15 @@ package libary.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person implements Crudable{
+public class Person {
 
-    private int ID;
+    private static int counter = 0;
+    private  int ID;
     private String name;
     private List<Item> items;
 
-    public Person(int ID, String name) {
-        this.ID = ID;
+    public Person(String name) {
+        this.ID = ++counter;
         this.name = name;
         items = new ArrayList<>();
     }
@@ -59,4 +60,9 @@ public class Person implements Crudable{
     public String toString() {
         return "ID: " + ID + " name: " + name;
     }
+
+    public static void retCounter(int x){
+        counter = x;
+    }
+
 }

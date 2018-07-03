@@ -1,11 +1,12 @@
 package libary.models;
 
-public abstract class Item implements Crudable {
+public abstract class Item  {
+    private static int counter = 0;
     private int ID;
-    private  boolean inStock;
+    private boolean inStock;
 
-    public Item(int ID, boolean inStock){
-        this.ID = ID;
+    public Item(boolean inStock) {
+        this.ID = ++counter;
         this.inStock = inStock;
     }
 
@@ -21,6 +22,8 @@ public abstract class Item implements Crudable {
         this.inStock = inStock;
     }
 
-
+    public static void setCounter(int x){
+        counter = x;
+    }
 
 }

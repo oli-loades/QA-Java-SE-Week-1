@@ -1,6 +1,7 @@
 package libary.tests;
 
 import libary.models.Newspaper;
+import libary.models.NewspaperType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class NewspaperTests {
 
     @Before
     public void setup(){
-        n= new Newspaper(1,true,"oiu","tre");
+        n= new Newspaper(true,"oiu", NewspaperType.BROADSHEET);
     }
     @Test
     public void createNewspaper(){
@@ -36,12 +37,12 @@ public class NewspaperTests {
 
         assertEquals("oiu",n.getPublisher());
 
-        assertEquals("tre", n.getType());
+        assertEquals("BROADSHEET", n.getType().toString());
 
         n.setPublisher("abc");
         assertEquals("abc",n.getPublisher());
 
-        n.setType("xyz");
-        assertEquals("xyz", n.getType());
+        n.setType(NewspaperType.TABLOID);
+        assertEquals("TABLOID", n.getType().toString());
     }
 }

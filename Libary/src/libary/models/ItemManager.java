@@ -3,7 +3,7 @@ package libary.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemManager {
+public class ItemManager implements Removable{
 
     List<Item> items;
 
@@ -19,7 +19,7 @@ public class ItemManager {
     public void update(int ID, Item item) {
         int pos = getPos(ID);
         if (pos != -1) {
-            if (items.get(pos) instanceof Book && item instanceof Book) {
+            if (items.get(pos) instanceof Book && item instanceof Book) {//the item being edited is of type book and the item passed in is of type book
                 ((Book) items.get(pos)).setTitle((((Book) item).getTitle()));
                 ((Book) items.get(pos)).setAuthor(((Book) item).getAuthor());
             } else if (items.get(pos) instanceof Newspaper && item instanceof Newspaper) {
@@ -33,7 +33,7 @@ public class ItemManager {
     }
 
 
-    public void delete(int ID) {
+    public void remove(int ID) {
         int pos = getPos(ID);
         if (pos != -1) {
             items.remove(pos);
@@ -67,10 +67,16 @@ public class ItemManager {
     }
 
     public void returnItem(int ID) {
-        items.get(getPos(ID)).setInStock(true);
+        int pos = getPos(ID);
+        if(pos!=-1) {//is found
+            items.get(pos).setInStock(true);
+        }
     }
 
     public void checkoutItem(int ID) {
-        items.get(getPos(ID)).setInStock(false);
+        int pos = getPos(ID);
+        if(pos!=-1) {
+            items.get(getPos(ID)).setInStock(false);
+        }
     }
 }

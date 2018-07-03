@@ -2,10 +2,10 @@ package libary.models;
 
 public class Newspaper extends Item {
     private String publisher;
-    private String type;
+    private NewspaperType type;
 
-    public Newspaper(int ID, boolean inStock, String publisher, String type){
-        super(ID,inStock);
+    public Newspaper( boolean inStock, String publisher, NewspaperType type){
+        super(inStock);
         this.publisher = publisher;
         this.type = type;
     }
@@ -18,11 +18,11 @@ public class Newspaper extends Item {
         this.publisher = publisher;
     }
 
-    public String getType() {
+    public NewspaperType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(NewspaperType type) {
         this.type = type;
     }
 }
