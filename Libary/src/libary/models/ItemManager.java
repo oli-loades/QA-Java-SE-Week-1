@@ -20,18 +20,14 @@ public class ItemManager implements Removable{
         int pos = getPos(ID);
         if (pos != -1) {
             if (items.get(pos) instanceof Book && item instanceof Book) {//the item being edited is of type book and the item passed in is of type book
-                ((Book) items.get(pos)).setTitle((((Book) item).getTitle()));
-                ((Book) items.get(pos)).setAuthor(((Book) item).getAuthor());
+                items.add(pos,item);
             } else if (items.get(pos) instanceof Newspaper && item instanceof Newspaper) {
-                ((Newspaper) items.get(pos)).setPublisher(((Newspaper) item).getPublisher());
-                ((Newspaper) items.get(pos)).setType(((Newspaper) item).getType());
+                items.add(pos,item);
             } else if (items.get(pos) instanceof Map && item instanceof Map) {
-                ((Map) items.get(pos)).setRegion(((Map) item).getRegion());
-                ((Map) items.get(pos)).setType(((Map) item).getType());
+                items.add(pos,item);
             }
         }
     }
-
 
     public void remove(int ID) {
         int pos = getPos(ID);

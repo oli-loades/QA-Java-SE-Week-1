@@ -42,7 +42,7 @@ public class ItemManagerTests {
     public void updateItem() {
         im.add(new Book( true, "abc", "xyz"));
         im.update(1, new Book(true, "afj", "www"));
-        assertEquals("www", ((Book) im.get(1)).getTitle());
+        assertEquals("www", ((Book) im.get(2)).getTitle());
     }
 
     @Test

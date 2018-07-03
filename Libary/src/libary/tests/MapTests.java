@@ -1,19 +1,19 @@
 package libary.tests;
 
-import libary.models.Map;
-import libary.models.MapType;
-import org.junit.Before;
-import org.junit.Test;
+import libary.models.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.*;
+
+import static org.junit.Assert.*;
 
 public class MapTests {
 
     private Map m;
     @Before
     public void setup(){
+        Item.setCounter(0);
         m = new Map(true, MapType.OCEANIC,"xyz");
+
     }
     @Test
     public void createMap(){

@@ -9,28 +9,14 @@ public class Library {
         itemMan = new ItemManager();
     }
 
-    public void addItem(boolean inStock, String author,String title){// adds book
-        itemMan.add(new Book(inStock,author,title));
+
+
+    public void addItem(Item item){// adds book
+        itemMan.add(item);
     }
 
-    public void addItem( boolean inStock, NewspaperType type,String publisher){//add newspaper
-        itemMan.add(new Newspaper(inStock,publisher,type));
-    }
-
-    public void addItem( boolean inStock, MapType type,String region){//adds map
-        itemMan.add(new Map(inStock,type,region));
-    }
-
-    public void updateItem(int ID ,boolean inStock, String author,String title){//updates book
-        itemMan.update(ID,new Book(inStock,author,title));
-    }
-
-    public void updateItem(int ID ,boolean inStock, NewspaperType type,String publisher){//updates newspaper
-        itemMan.update(ID,new Newspaper(inStock,publisher,type));
-    }
-
-    public void updateItem(int ID,boolean inStock, MapType type,String region){//update map
-        itemMan.update(ID,new Map(inStock,type,region));
+    public void update(int ID,Item item){
+        itemMan.update(ID,item);
     }
 
     public void removeItem(int ID){

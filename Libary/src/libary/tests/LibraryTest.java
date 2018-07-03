@@ -24,32 +24,32 @@ public class LibraryTest {
 
     @Test
     public void addItem(){
-        lib.addItem(true,"abc","xyz");
+        lib.addItem(new Book(true,"abc","xyz"));
         assertEquals(1,lib.getNumItems());
     }
 
     @Test
     public void updateItem(){
-        lib.addItem(true,"abc","xyz");
-        lib.addItem(true,NewspaperType.BROADSHEET,"xyz");
-        lib.addItem(true,MapType.OCEANIC,"abc");
+        lib.addItem(new Book(true,"abc","xyz"));
+        lib.addItem(new Newspaper(true,"xyz",NewspaperType.BROADSHEET));
+        lib.addItem(new Map(true,MapType.OCEANIC,"abc"));
 
-        lib.updateItem(1,true,"rty","xyz");
-        assertEquals("rty",lib.getBook(1).getAuthor());
-
-
-        lib.updateItem(2,true,NewspaperType.BROADSHEET,"fgh");
-        assertEquals("fgh",lib.getNewspaper(2).getPublisher());
+        lib.update(1,new Book(true,"rty","xyz"));
+        assertEquals("rty",lib.getBook(4).getAuthor());
 
 
-        lib.updateItem(3,true,MapType.OCEANIC,"xyz");
-        assertEquals("xyz",lib.getMap(3).getRegion());
+        lib.update(2,new Newspaper(true,"fgh",NewspaperType.BROADSHEET));
+        assertEquals("fgh",lib.getNewspaper(5).getPublisher());
+
+
+        lib.update(3,new Map(true,MapType.OCEANIC,"xyz"));
+        assertEquals("xyz",lib.getMap(6).getRegion());
     }
 
     @Test
     public void removeItem(){
-        lib.addItem(true,"abc","xyz");
-        lib.addItem(true,"abc","xyz");
+        lib.addItem(new Book(true,"abc","xyz"));
+        lib.addItem(new Book(true,"abc","xyz"));
         lib.removeItem(1);
         assertEquals(1,lib.getNumItems());
     }
@@ -74,27 +74,33 @@ public class LibraryTest {
         assertEquals(0,lib.getNumUsers());
     }
 
-    @Test
+    @Test(expected = ClassCastException.class)
     public void getBook(){
-        lib.addItem(true,"abc","xyz");
+        lib.addItem(new Book(true,"abc","xyz"));
+        lib.addItem(new Map(true,MapType.POPULATION,"abc"));
         assertEquals("xyz",lib.getBook(1).getTitle());
+        lib.getBook(2).getTitle();//exception thrown
     }
 
-    @Test
+    @Test(expected = ClassCastException.class)
     public void getMap(){
-        lib.addItem(true,MapType.POPULATION,"abc");
+        lib.addItem(new Map(true,MapType.POPULATION,"abc"));
+        lib.addItem(new Book(true,"abc","xyz"));
         assertEquals("abc",lib.getMap(1).getRegion());
+        lib.getMap(2).getRegion();//exception thrown
     }
 
-    @Test
+    @Test(expected = ClassCastException.class)
     public void getNewspaper(){
-        lib.addItem(true,NewspaperType.TABLOID,"asd");
+        lib.addItem(new Newspaper(true,"asd",NewspaperType.TABLOID));
+        lib.addItem(new Map(true,MapType.POPULATION,"abc"));
         assertEquals("asd",lib.getNewspaper(1).getPublisher());
+        lib.getNewspaper(2).getPublisher();//exception thrown
     }
 
     @Test
     public void returnItem(){
-        lib.addItem(true,"abc","xyz");
+        lib.addItem(new Book(true,"abc","xyz"));
         lib.addUser("abc");
         lib.checkoutItem(1,1);
         lib.returnItem(1,1);
@@ -103,7 +109,7 @@ public class LibraryTest {
 
     @Test
     public void checkoutItem(){
-        lib.addItem(true,"abc","xyz");
+        lib.addItem(new Book(true,"abc","xyz"));
         lib.addUser("abc");
         lib.checkoutItem(1,1);
         assertEquals(false,lib.getBook(1).isInStock());

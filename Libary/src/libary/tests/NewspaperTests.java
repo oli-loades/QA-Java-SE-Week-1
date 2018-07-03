@@ -1,5 +1,6 @@
 package libary.tests;
 
+import libary.models.Item;
 import libary.models.Newspaper;
 import libary.models.NewspaperType;
 import org.junit.Before;
@@ -14,7 +15,9 @@ public class NewspaperTests {
 
     @Before
     public void setup(){
+        Item.setCounter(0);
         n= new Newspaper(true,"oiu", NewspaperType.BROADSHEET);
+
     }
     @Test
     public void createNewspaper(){

@@ -15,6 +15,7 @@ public class PersonManagerTests {
     public void setup(){
         pm = new PersonManager();
         Person.retCounter(0);
+        Item.setCounter(0);
     }
 
     @Test
@@ -39,14 +40,14 @@ public class PersonManagerTests {
 
         pm.add(new Person( "xyz"));
         pm.remove(1);
-        assertEquals(1, pm.getList().size());
+        assertEquals(0, pm.getList().size());
     }
 
     @Test
     public void checkoutItem(){
         pm.add(new Person( "abc"));
         pm.checkoutItem(1,new Book(true,"a","b"));
-        assertEquals(1,pm.get(1).getItemList().size());
+        assertEquals(0,pm.get(1).getItemList().size());
     }
 
     @Test
