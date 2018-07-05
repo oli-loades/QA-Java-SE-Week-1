@@ -11,7 +11,7 @@ public class ShipTests {
 
     @Before
     public void setup(){
-        ship = new Ship("abc",2);
+        ship = new Ship("abc",2,1,1,Direction.EAST);
     }
 
     @Test
